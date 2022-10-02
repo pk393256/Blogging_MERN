@@ -45,7 +45,27 @@ async function createPost(req,res){
 }
 
 async function updatePost(req,res){
-
+    let {_id}=req.params
+    // res.send(_id)
+    let {id}=req.context.user[0]
+    try {
+        let dataToUpdate=req.body;
+        // res.send(dataToUpdate)
+        let dataToChange=await postModel.findById({_id})
+        if(dataToChange.belongsTo.toString()==id.toString()){
+        let updatedData=await postModel.findByIdAndUpdate({_id},dataToUpdate)
+        // console.log('updateData',updatedData)
+        res.send('updated');
+        }else{
+            res.send('This post does not belongs to you')
+        }
+        // return
+        
+    } catch (error) {
+        console.log(error)
+        res.send('No such post exist');
+        return
+    }
 
 }
 
