@@ -70,7 +70,19 @@ async function updatePost(req,res){
 }
 
 async function deletePost(req,res){
-
+    let {_id} = req.params;
+    let {id} = req.context.user[0]
+    try {
+        let dataToDeleted=await postModel.findById({_id})
+        if(dataToDeleted.belongsTo.toString()==id.toString()){
+            await postModel.findByIdAndDelete({_id})
+            res.send('deleted')
+        }else{
+            res.send('This post does not belongs to you')
+        }
+    }catch(error){
+        res.send('No such post exist')
+    }
 }
 
 module.exports={

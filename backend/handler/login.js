@@ -19,7 +19,7 @@ async function login(req,res,next){
                 id:isPresent._id,
                 name:isPresent.name,
                 email:isPresent.email,
-                password:isPresent.password
+                // password:isPresent.password
             }
             let encData = Jwt.sign(data,secret_key);
             // let abc=req.context;
