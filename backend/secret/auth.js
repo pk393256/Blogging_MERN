@@ -5,28 +5,49 @@ const {secret_key} = require('../secret/secret');
 
 async function auth(req,res,next){
 
-    req.context.abc='it worked';
-
-    // let token = req.headers.token;
-
-    // if(token){
-    //     let decode_token = Jwt.verify(token,secret_key);
-    //     console.log('decode_token',decode_token);
-    //     try {
-    //         let user = await userModel.find({email:decode_token.email});
-    //         if(user.length>0){
-    //             req.context.user=user;
-
-    //         }
-    //     } catch (error) {
-    //         console.log(error)
-    //         res.send('login first')
-            
-    //     }
+    
+    // console.log('token',token)
+    // req.context.abc=token;
+    
         
-    // }else{
-    //     res.send('Invalid token');
-    // }
+        let token = req.headers.token;
+            // console.log('token',token)
+            if(token!=''){
+            try {
+                let decode_token = Jwt.verify(token,secret_key);
+            
+                // console.log('decode_token',decode_token);
+               
+                try {
+                    let user = await userModel.find({email:decode_token.email});
+                    if(user.length>0){
+                        req.context.user=user;
+        
+                    }else{
+                        res.send('login first')
+                    }
+                } catch (error) {
+                    console.log(error)
+                    // res.send('login first')
+                    return 
+                    
+                }
+            
+            } catch (error) {
+                res.send('invalid token')
+                return
+            }
+           
+            
+            }
+
+
+
+         else {
+            res.send('token not provided')
+            return 
+        }
+        
     next()
 
 }

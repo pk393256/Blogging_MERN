@@ -17,13 +17,13 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    belongs:
+    belongsTo:
         {type:mongoose.Schema.Types.ObjectId,ref:"User"},
-        // required:true
+    //     // required:true
     
-    belongTo:[
-        {type:mongoose.Schema.Types.ObjectId,ref:"User"}
-    ]
+    // belongsTo:
+    //     {type:mongoose.Types.ObjectId,ref:"User"}
+    
 })
 
 const postModel= mongoose.model("Post",postSchema);

@@ -9,7 +9,7 @@ const {secret_key} = require("../secret/secret")
 async function login(req,res,next){
     // console.log(req)     
     let data={email,password} = req.body;
-    res.send(req.context)
+    // res.send(req.context)
     try {
         let isPresent = await userModel.find(data);
         if(isPresent.length>0){

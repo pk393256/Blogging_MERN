@@ -9,9 +9,9 @@ app.use(setContext)
 app.use(userRoute)
 
 function setContext(req,res,next){
-    req.context={a:1}
+    req.context={}
     // res.send(req.context)
-    console.log('req.context',req.context)
+    // console.log('req.context',req.context)
     next();
 }
 

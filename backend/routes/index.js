@@ -2,11 +2,14 @@ const express = require('express');
 // const { createPost } = require('../handler/post');
 const { registerUser,getAllUser } = require('../handler/user');
 const {login} = require('../handler/login')
-const {auth} = require('../secret/auth')
+const {auth} = require('../secret/auth');
+const { getAllPost, createPost } = require('../handler/post');
 // const {}=require('../handler/user')
 const userRoute = express.Router()
 userRoute.get('/user',getAllUser)
-userRoute.post('/login',auth,login)
+userRoute.post('/login',login)
 userRoute.post('/user',registerUser);
+userRoute.get('/post',auth,getAllPost);
+userRoute.post('/post',auth,createPost);
 // userRoute.post('/post',createPost);
 module.exports=userRoute;
