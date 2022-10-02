@@ -29,12 +29,15 @@ async function registerUser(req, res) {
     
 }
 
-async function getAllUser(req,res){
+async function getAllUser(req,res,next){
     try{
+        // req.context['abc']='abc';
+        // console.log(req.context.yellow)
         let allUser = await userModel.find({});
+        // console.log(req)
         res.status(200).send(allUser);
     }catch(err){
-        res.status(400).send('No player found');
+        res.status(400).send('No user found');
         throw err;
     }
 }

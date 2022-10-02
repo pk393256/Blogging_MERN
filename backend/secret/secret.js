@@ -1,1 +1,4 @@
-export const secret_key='Princeismynamecodingismywork';
+const secret_key='ingismywork';
+module.exports={
+    secret_key
+}
