@@ -11,9 +11,11 @@ async function registerUser(req, res) {
         // console.log('ifPresent', ifPresent);
         if (ifPresent.length>0) {
             res.status(409).send('User already present');
+            console.log('if this runs after send');
         }
         } catch (error) {
             console.log('error message 1',error)
+            
         }
         try {
             let data = { name, email, password } = req.body;
