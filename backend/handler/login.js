@@ -24,7 +24,7 @@ async function login(req,res,next){
             let encData = Jwt.sign(data,secret_key);
             // let abc=req.context;
             // console.log('abc',abc)
-            res.status(200).send(encData);
+            res.status(200).send({token:encData});
         }else{
             res.send('Invalid credential');
         }
