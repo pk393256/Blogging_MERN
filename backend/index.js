@@ -1,6 +1,8 @@
 const express = require('express');
 
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 const cors=require('cors')
 const connectDatabase = require('./model/index')
 const userRoute = require('./routes')
@@ -16,10 +18,10 @@ function setContext(req,res,next){
     // console.log('req.context',req.context)
     next();
 }
-
+const PORT = process.env.PORT || 8080
 connectDatabase().then(()=>{
-    app.listen(8080,()=>{
-        console.log('server running at port 8080')
+    app.listen(PORT,()=>{
+        console.log(`server running at port ${PORT}`)
     })
 })
 
