@@ -30,7 +30,7 @@ async function createPost(req,res){
         let data={title,category,author,content}=req.body;
         let belongsTo=mongoose.Types.ObjectId(id)
         data={...data,belongsTo}
-        console.log('data',data);
+        // console.log('data',data);
         let addPost=await postModel.create(data);
         res.send('Post added')
 

@@ -11,6 +11,7 @@ async function auth(req,res,next){
     
         
         let token = req.headers.token;
+        console.log('header',req.headers)
             // console.log('token',token)
             if(token!=''){
             try {
