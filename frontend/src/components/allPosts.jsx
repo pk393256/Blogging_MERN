@@ -17,7 +17,7 @@ export function AllPost() {
 
     // console.log('token',token)
     function fetchAllPost(token) {
-        fetch('http://localhost:8080/post', {
+        fetch('https://blogging3932-app.herokuapp.com/post', {
             headers: {
                 'Content-Type': 'application/json',
                 token
@@ -32,7 +32,7 @@ export function AllPost() {
         console.log('creating post')
         let data = { title: title1, author: author1, category: category, content: content };
         console.log('data', data)
-        await fetch('http://localhost:8080/post', {
+        await fetch('https://blogging3932-app.herokuapp.com/post', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export function AllPost() {
         setAnyChange((prev) => prev + 1)
         console.log('id', x)
         let data = { title, author }
-        let check = await fetch(`http://localhost:8080/post/${x}`, {
+        let check = await fetch(`https://blogging3932-app.herokuapp.com/post/${x}`, {
             method: 'PATCH',
             headers: {
                 token,
@@ -63,8 +63,8 @@ export function AllPost() {
     async function deletePost(x) {
         // console.log(x)
         setAnyChange((prev) => prev + 1)
-        console.log('fetch', `http://localhost:8080/post/${x}`)
-        await fetch(`http://localhost:8080/post/${x}`, {
+        console.log('fetch', `https://blogging3932-app.herokuapp.com/post/${x}`)
+        await fetch(`https://blogging3932-app.herokuapp.com/post/${x}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',

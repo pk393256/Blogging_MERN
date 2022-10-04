@@ -1,6 +1,6 @@
 const Jwt = require('jsonwebtoken');
 const userModel = require('../model/user');
-const {secret_key} = require('../secret/secret');
+const {secret_key} = require('../secret');
 
 
 async function auth(req,res,next){

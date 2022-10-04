@@ -2,7 +2,7 @@
 // import userModel from "../model/user";
 const Jwt =require('jsonwebtoken');
 const userModel = require("../model/user");
-const {secret_key} = require("../secret/secret")
+const {secret_key} = require("../secret")
 // import { secret_key } from "../secret/secret";
 // export userModel
 

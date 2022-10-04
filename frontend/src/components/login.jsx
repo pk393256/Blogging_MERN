@@ -15,7 +15,7 @@ export function Login(){
         e.preventDefault();
         let data={email,password}
         // console.log(data)
-        await fetch('http://localhost:8080/login',{
+        await fetch('https://blogging3932-app.herokuapp.com/login',{
             method:"POST",
             headers:{
                 'Content-Type':'application/json'

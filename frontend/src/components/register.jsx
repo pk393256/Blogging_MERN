@@ -14,7 +14,7 @@ export function Register(){
         let data={name,email,password}
         console.log(data)
         try {
-            await fetch('http://localhost:8080/user',{
+            await fetch('https://blogging3932-app.herokuapp.com/user',{
             method:"POST",
             headers:{
                 "Content-Type":'application/json'
